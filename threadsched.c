@@ -88,7 +88,8 @@ int main() {
     if (paramB != NULL) {
         paramB -> sched_priority = 0;
     }
-    // struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
+    
+    struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
     // pthread_setschedparam(ThrA, SCHED_OTHER, paramA);

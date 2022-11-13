@@ -64,11 +64,6 @@ void countC() {
     printf("Runtime of CountC = %lfs\n", runTime);
 }
 
-void* test(void* args) {
-    printf("Bhai pls chalja\n");
-    return NULL;
-}
-
 int main() {
     
     pthread_t ThrA;
@@ -76,10 +71,8 @@ int main() {
     pthread_t ThrC;
 
     // struct args* passArgs = (struct args*) malloc (sizeof(struct args));
-    pthread_create(&ThrA, NULL, test, NULL);
-    printf("Created\n");
+    pthread_create(&ThrA, NULL, Thr_A, NULL);
     pthread_join(ThrA, NULL);
-    printf("Joined\n");
     // free((void *) passArgs);
 
     return 0;

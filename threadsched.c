@@ -80,8 +80,8 @@ int main() {
     pthread_t ThrC;
 
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
-    struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
-    struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
+    // struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
+    // struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
     pthread_setschedparam(ThrA, SCHED_OTHER, paramA);

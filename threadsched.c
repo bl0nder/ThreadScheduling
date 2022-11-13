@@ -69,10 +69,10 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    struct sched_param param = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* param = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
-    pthread_setschedparam(ThrA, SCHED_OTHER, &param);
+    pthread_setschedparam(ThrA, SCHED_OTHER, param);
     pthread_create(&ThrA, NULL, Thr_A, NULL);
     pthread_join(ThrA, NULL);
     // free((void *) passArgs);

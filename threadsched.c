@@ -9,7 +9,7 @@ void countA() {
     struct timespec end;
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     for (unsigned long i=1; i<=100000; i++) {
-        printf("%lu ", i);
+        // printf("%lu ", i);
     }
     printf("\n");
     int endTime = clock_gettime(CLOCK_REALTIME, &end);

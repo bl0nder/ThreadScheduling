@@ -85,15 +85,15 @@ int main() {
 
     // Thread A
     pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
-    pthread_create(&ThrA, NULL, Thr_A, NULL);
+    pthread_setschedparam(ThrB, SCHED_RR, paramB);
+    pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
 
     //Thread B
-    pthread_setschedparam(ThrB, SCHED_RR, paramB);
+    pthread_create(&ThrA, NULL, Thr_A, NULL);
     pthread_create(&ThrB, NULL, Thr_B, NULL);
+    pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     //Thread C
-    pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
-    pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     //Joining all threads
     pthread_join(ThrA, NULL);

@@ -13,7 +13,7 @@ void countA() {
     }
 }
 
-void* Thr_A(void* args) {
+void* Thr_A(void*) {
     printf("SHEEEEEEEEEEEEEESH\n");
     struct timespec start;
     struct timespec end;
@@ -64,7 +64,7 @@ void countC() {
     printf("Runtime of CountC = %lfs\n", runTime);
 }
 
-void* test() {
+void* test(void* ) {
     printf("Bhai pls chalja\n");
 
 }

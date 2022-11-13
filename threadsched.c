@@ -5,7 +5,8 @@
 #include <time.h>
 
 void countA() {
-    struct timespec* start, end;
+    struct timespec* start;
+    struct timespec* end;
     int startTime = clock_gettime(CLOCK_REALTIME, start);
     for (unsigned long i=1; i<=5000; i++) {
         printf("%d ", i);

@@ -64,7 +64,7 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    int t1 = pthread_create(ThrA, NULL, Thr_A, NULL);
+    int t1 = pthread_create(&ThrA, NULL, Thr_A, NULL);
     pthread_join(t1, NULL);
 
     return 0;

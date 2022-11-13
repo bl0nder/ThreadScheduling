@@ -14,6 +14,7 @@ void countA() {
 }
 
 void* Thr_A(void* args) {
+    printf("SHEEEEEEEEEEEEEESH\n");
     struct timespec start;
     struct timespec end;
     printf("Counting starts now!\n");

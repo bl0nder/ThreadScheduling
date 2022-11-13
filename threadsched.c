@@ -93,7 +93,7 @@ int main() {
 
     // Thread A
     pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
-    pthread_setschedparam(ThrB, SCHED_RR, paramA);
+    pthread_setschedparam(ThrB, SCHED_RR, paramB);
     pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
 
     // //Thread B

@@ -4,6 +4,9 @@
 #include <unistd.h>
 #include <time.h>
 
+struct args {
+};
+
 void countA() {
     for (unsigned long i=1; i<=4294967296; i++) {
         continue;
@@ -64,8 +67,10 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    int t1 = pthread_create(&ThrA, NULL, Thr_A, NULL);
+    struct args* passArgs = (struct args*) malloc (sizeof(struct args));
+    int t1 = pthread_create(&ThrA, NULL, Thr_A, (void *)passArgs);
     pthread_join(t1, NULL);
+    free((void *) passArgs);
 
     return 0;
 }

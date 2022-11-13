@@ -101,9 +101,9 @@ int main() {
     pthread_join(ThrC, NULL);
     
     //Free memory taken by parameters
-    free(paramA);
-    free(paramB);
-    free(paramC);
+    // free(paramA);
+    // free(paramB);
+    // free(paramC);
 
     return 0;
 }

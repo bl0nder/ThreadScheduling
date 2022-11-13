@@ -27,9 +27,9 @@ void countC() {
 
 int main() {
     
-    pthread_t Thr-A;
-    pthread_t Thr-B;
-    pthread_t Thr-C;
+    pthread_t ThrA;
+    pthread_t ThrB;
+    pthread_t ThrC;
 
     countA();
 

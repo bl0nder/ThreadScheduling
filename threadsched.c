@@ -92,7 +92,7 @@ int main() {
     struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
-    // pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
+    pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
     
     // // pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
 

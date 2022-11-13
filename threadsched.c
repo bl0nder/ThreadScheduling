@@ -85,25 +85,25 @@ int main() {
     // Thread A
     pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
     
-    struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
-    pthread_setschedparam(ThrB, SCHED_RR, paramB);
+    // struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
+    // pthread_setschedparam(ThrB, SCHED_RR, paramB);
     // pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
 
     //Thread B
     pthread_create(&ThrA, NULL, Thr_A, NULL);
-    pthread_create(&ThrB, NULL, Thr_B, NULL);
+    // pthread_create(&ThrB, NULL, Thr_B, NULL);
     // pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     //Thread C
 
     //Joining all threads
     pthread_join(ThrA, NULL);
-    pthread_join(ThrB, NULL);
+    // pthread_join(ThrB, NULL);
     // pthread_join(ThrC, NULL);
     
     //Free memory taken by parameters
     free(paramA);
-    free(paramB);
+    // free(paramB);
     // free(paramC);
 
     return 0;

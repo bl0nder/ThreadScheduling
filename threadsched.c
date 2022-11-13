@@ -13,6 +13,18 @@ void countA() {
     }
 }
 
+void countB() {
+    for (unsigned long i=1; i<=4294967296; i++) {
+        continue;
+    }
+}
+
+void countC() {
+    for (unsigned long i=1; i<=4294967296; i++) {
+        continue;
+    }
+}
+
 void* Thr_A(void* args) {
     struct timespec start;
     struct timespec end;
@@ -29,38 +41,36 @@ void* Thr_A(void* args) {
     return NULL;
 }
 
-void countB() {
+void* Thr_B(void* args) {
     struct timespec start;
     struct timespec end;
     printf("Counting starts now!\n");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
-    for (unsigned long i=1; i<=4294967296; i++) {
-        continue;
-    }
+    countB();
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
-    // long double runTimeNSec = end.tv_nsec - start.tv_nsec;
 
     printf("Runtime of CountB = %lfs\n", runTime);
+
+    return NULL;
 }
 
-void countC() {
+void* Thr_C(void* args) {
     struct timespec start;
     struct timespec end;
     printf("Counting starts now!\n");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
-    for (unsigned long i=1; i<=4294967296; i++) {
-        continue;
-    }
+    countC();
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
-    // long double runTimeNSec = end.tv_nsec - start.tv_nsec;
 
     printf("Runtime of CountC = %lfs\n", runTime);
+
+    return NULL;
 }
 
 int main() {
@@ -69,13 +79,31 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    struct sched_param* param = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
-    pthread_setschedparam(ThrA, SCHED_FIFO, param);
+    pthread_setschedparam(ThrA, SCHED_OTHER, paramA);
     pthread_create(&ThrA, NULL, Thr_A, NULL);
+
+    //Thread B
+    pthread_setschedparam(ThrB, SCHED_RR, paramB);
+    pthread_create(&ThrB, NULL, Thr_B, NULL);
+
+    //Thread C
+    pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
+    pthread_create(&ThrC, NULL, Thr_C, NULL);
+
+    //Joining all threads
     pthread_join(ThrA, NULL);
-    // free((void *) passArgs);
+    pthread_join(ThrB, NULL);
+    pthread_join(ThrC, NULL);
+    
+    //Free memory taken by parameters
+    free(paramA);
+    free(paramB);
+    free(paramC);
 
     return 0;
 }

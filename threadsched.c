@@ -4,8 +4,8 @@
 #include <unistd.h>
 #include <time.h>
 
-struct args {
-};
+// struct args {
+// };
 
 void countA() {
     for (unsigned long i=1; i<=4294967296; i++) {
@@ -25,6 +25,8 @@ void* Thr_A(void* args) {
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
     printf("Runtime of CountA = %lfs\n", runTime);
+
+    return args;
 }
 
 void countB() {
@@ -67,10 +69,10 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    struct args* passArgs = (struct args*) malloc (sizeof(struct args));
-    int t1 = pthread_create(&ThrA, NULL, Thr_A, (void *)passArgs);
+    // struct args* passArgs = (struct args*) malloc (sizeof(struct args));
+    int t1 = pthread_create(&ThrA, NULL, Thr_A, NULL);
     pthread_join(t1, NULL);
-    free((void *) passArgs);
+    // free((void *) passArgs);
 
     return 0;
 }

@@ -81,9 +81,9 @@ int main() {
 
     struct sched_param* paramA;
     paramA -> sched_priority = 0;
-    
-    struct sched_param* paramB;
-    paramB -> sched_priority = 0;
+
+    // struct sched_param* paramB;
+    // paramB -> sched_priority = 0;
     // struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     // Thread A
@@ -97,12 +97,12 @@ int main() {
 
     //Thread C
 
-    pthread_setschedparam(ThrB, SCHED_RR, paramA);
-    pthread_create(&ThrB, NULL, Thr_B, NULL);
+    // pthread_setschedparam(ThrB, SCHED_RR, paramA);
+    // pthread_create(&ThrB, NULL, Thr_B, NULL);
 
     //Joining all threads
     pthread_join(ThrA, NULL);
-    pthread_join(ThrB, NULL);
+    // pthread_join(ThrB, NULL);
     // pthread_join(ThrC, NULL);
     
     //Free memory taken by parameters

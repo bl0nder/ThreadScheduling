@@ -62,8 +62,9 @@ void countC() {
     printf("Runtime of CountC = %lfs\n", runTime);
 }
 
-void* test(void* ) {
+void* test(void* args) {
     printf("Bhai pls chalja\n");
+    return NULL;
 }
 
 int main() {

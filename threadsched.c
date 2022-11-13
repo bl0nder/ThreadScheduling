@@ -5,11 +5,13 @@
 #include <time.h>
 
 void countA() {
-    
+    struct timespec* start, end;
+    int startTime = clock_gettime(CLOCK_REALTIME, start);
     for (unsigned long i=1; i<=5000; i++) {
         printf("%d ", i);
     }
     printf("\n");
+    int endTime = clock_gettime(CLOCK_REALTIME, end);
 }
 
 void countB() {

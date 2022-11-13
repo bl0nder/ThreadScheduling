@@ -14,7 +14,7 @@ void countA() {
     printf("\n");
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
-    long double runTime = (end.tv_nsec - start.tv_nsec) / 1000000;
+    long double runTime = (end.tv_nsec - start.tv_nsec);
 
     printf("Runtime of CountA = %lf\n", runTime);
 }

@@ -8,15 +8,15 @@ void countA() {
     struct timespec start;
     struct timespec end;
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
-    for (unsigned long i=1; i<=50000; i++) {
+    for (unsigned long i=1; i<=10000; i++) {
         printf("%d ", i);
     }
     printf("\n");
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
-    long double runTime = (end.tv_nsec - start.tv_nsec);
+    double runTime = (end.tv_nsec - start.tv_nsec);
 
-    printf("Runtime of CountA = %lf\n", runTime);
+    printf("Runtime of CountA = %f\n", runTime);
 }
 
 void countB() {

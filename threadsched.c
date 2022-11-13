@@ -33,7 +33,7 @@ void* Thr_A(void* args) {
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);
 
-    printf("Counting starts now!\n");
+    printf("Thread A has started counting!\n");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countA();
@@ -54,7 +54,7 @@ void* Thr_B(void* args) {
 
     pthread_setschedparam(pthread_self(), SCHED_RR, paramB);
 
-    printf("Counting starts now!\n");
+    printf("Thread B has started counting!\n");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countB();
@@ -75,7 +75,7 @@ void* Thr_C(void* args) {
 
     pthread_setschedparam(pthread_self(), SCHED_FIFO, paramC);
 
-    printf("Counting starts now!\n");
+    printf("Thread C has started counting!\n");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countC();

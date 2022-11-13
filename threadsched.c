@@ -16,7 +16,7 @@ void countA() {
 
     long double runTime = end.tv_sec + end.tv_nsec - start.tv_sec - start.tv_nsec;
 
-    print("Runtime of CountA = %lf\n", runTime);
+    printf("Runtime of CountA = %lf\n", runTime);
 }
 
 void countB() {

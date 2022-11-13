@@ -96,12 +96,10 @@ int main() {
 
     // Thread A
     pthread_create(&ThrA, NULL, Thr_A, NULL);
-    
     //Thread B
-    pthread_create(&ThrC, NULL, Thr_C, NULL);
-
-    //Thread C
     pthread_create(&ThrB, NULL, Thr_B, NULL);
+    //Thread C
+    pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     //Joining all threads
     pthread_join(ThrA, NULL);

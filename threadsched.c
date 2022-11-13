@@ -80,7 +80,7 @@ int main() {
     pthread_t ThrC;
 
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
-    paramA -> sched_priority = 10;
+    paramA -> sched_priority = -10;
 
     // struct sched_param* paramB;
     // paramB -> sched_priority = 0;

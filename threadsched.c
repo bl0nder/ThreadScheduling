@@ -26,8 +26,6 @@ void* Thr_A(void*) {
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
     printf("Runtime of CountA = %lfs\n", runTime);
-
-    return args;
 }
 
 void countB() {

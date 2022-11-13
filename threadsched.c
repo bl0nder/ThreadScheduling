@@ -5,21 +5,22 @@
 #include <time.h>
 
 void countA() {
-    for (unsigned long i=1; i<5000; i++) {
+    
+    for (unsigned long i=1; i<=5000; i++) {
         printf("%d ", i);
     }
     printf("\n");
 }
 
 void countB() {
-    for (unsigned long i=1; i<4294967296; i++) {
+    for (unsigned long i=1; i<=4294967296; i++) {
         printf("%d ", i);
     }
     printf("\n");
 }
 
 void countC() {
-    for (unsigned long i=1; i<4294967296; i++) {
+    for (unsigned long i=1; i<=4294967296; i++) {
         printf("%d ", i);
     }
     printf("\n");

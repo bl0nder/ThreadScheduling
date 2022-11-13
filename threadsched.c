@@ -8,7 +8,7 @@ void countA() {
     struct timespec start;
     struct timespec end;
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
-    for (unsigned long i=1; i<=10000; i++) {
+    for (unsigned long i=1; i<=100000; i++) {
         printf("%d ", i);
     }
     printf("\n");

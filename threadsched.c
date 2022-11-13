@@ -7,11 +7,13 @@
 void countA() {
     struct timespec start;
     struct timespec end;
+    printf("Counting starts now!\n");
+    
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     for (unsigned long i=1; i<=4294967296; i++) {
         // printf("%lu ", i);
+        continue;
     }
-    printf("\n");
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));

@@ -76,8 +76,10 @@ int main() {
     pthread_t ThrC;
 
     // struct args* passArgs = (struct args*) malloc (sizeof(struct args));
-    int t1 = pthread_create(&ThrA, NULL, test, NULL);
+    pthread_create(&ThrA, NULL, test, NULL);
+    printf("Created\n");
     pthread_join(t1, NULL);
+    printf("Joined\n");
     // free((void *) passArgs);
 
     return 0;

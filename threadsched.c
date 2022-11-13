@@ -10,7 +10,7 @@ void countA() {
     }
 }
 
-void* Thr_A() {
+void* Thr_A(void* args) {
     struct timespec start;
     struct timespec end;
     printf("Counting starts now!\n");

@@ -104,7 +104,7 @@ int main() {
     
     //Free memory taken by parameters
     free(paramA);
-    free(paramB);
+    // free(paramB);
     // free(paramC);
 
     return 0;

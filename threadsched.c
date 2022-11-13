@@ -79,7 +79,7 @@ int main() {
     pthread_t ThrB;
     pthread_t ThrC;
 
-    struct sched_param* paramA;
+    struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
     paramA -> sched_priority = 0;
 
     // struct sched_param* paramB;

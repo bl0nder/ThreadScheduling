@@ -13,6 +13,10 @@ void countA() {
     }
     printf("\n");
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
+
+    long double runTime = endTime.tv_sec + endTime.tv_nsec - startTime.tv_sec - startTime.tv_nsec;
+
+    print("Runtime of CountA = %lf\n", runTime);
 }
 
 void countB() {

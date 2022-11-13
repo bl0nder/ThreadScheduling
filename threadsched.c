@@ -97,7 +97,7 @@ int main() {
     // // pthread_setschedparam(ThrC, SCHED_FIFO, paramC);
 
     // //Thread B
-    // pthread_create(&ThrA, NULL, Thr_A, NULL);
+    pthread_create(&ThrA, NULL, Thr_A, NULL);
     // // pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     // //Thread C
@@ -106,7 +106,7 @@ int main() {
     // // pthread_create(&ThrB, NULL, Thr_B, NULL);
 
     // //Joining all threads
-    // pthread_join(ThrA, NULL);
+    pthread_join(ThrA, NULL);
     // // pthread_join(ThrB, NULL);
     // // pthread_join(ThrC, NULL);
     

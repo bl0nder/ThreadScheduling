@@ -90,6 +90,7 @@ int main() {
     //Thread B
     pthread_create(&ThrA, NULL, Thr_A, NULL);
     // pthread_create(&ThrC, NULL, Thr_C, NULL);
+    free(paramA);
 
     //Thread C
 
@@ -103,7 +104,6 @@ int main() {
     // pthread_join(ThrC, NULL);
     
     //Free memory taken by parameters
-    free(paramA);
     free(paramB);
     // free(paramC);
 

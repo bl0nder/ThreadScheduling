@@ -8,6 +8,6 @@ void countA() {
 }
 
 int main() {
-    printf("Hello world\n");
+    countA();
     return 0;
 }

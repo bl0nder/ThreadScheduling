@@ -99,8 +99,8 @@ void* Thr_C(void* args) {
 
 int main() {
     
-    int a = sched_get_priority_min(SCHED_RR);
-    int b = sched_get_priority_min(SCHED_FIFO);
+    int a = sched_get_priority_min(SCHED_OTHER);
+    int b = sched_get_priority_max(SCHED_OTHER);
 
     printf("%d %d\n", a, b);
 

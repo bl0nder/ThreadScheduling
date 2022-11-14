@@ -108,8 +108,8 @@ int main() {
     pthread_create(&ThrC, NULL, Thr_C, NULL);
 
     //Joining all threads
-    pthread_join(ThrA, NULL);
-    pthread_join(ThrB, NULL);
     pthread_join(ThrC, NULL);
+    pthread_join(ThrB, NULL);
+    pthread_join(ThrA, NULL);
     return 0;
 }

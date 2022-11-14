@@ -79,7 +79,7 @@ void* Thr_C(void* args) {
     struct timespec end;
     struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
     if (paramC != NULL) {
-        paramC -> sched_priority = 0;
+        paramC -> sched_priority = 1;
     }
 
     pthread_setschedparam(pthread_self(), SCHED_FIFO, paramC);
@@ -98,26 +98,21 @@ void* Thr_C(void* args) {
 }
 
 int main() {
-    
-    int a = sched_get_priority_min(SCHED_OTHER);
-    int b = sched_get_priority_max(SCHED_OTHER);
 
-    printf("%d %d\n", a, b);
+    pthread_t ThrA;
+    pthread_t ThrB;
+    pthread_t ThrC;
 
-    // pthread_t ThrA;
-    // pthread_t ThrB;
-    // pthread_t ThrC;
+    // Thread A
+    pthread_create(&ThrA, NULL, Thr_A, NULL);
+    //Thread B
+    pthread_create(&ThrB, NULL, Thr_B, NULL);
+    //Thread C
+    pthread_create(&ThrC, NULL, Thr_C, NULL);
 
-    // // Thread A
-    // pthread_create(&ThrA, NULL, Thr_A, NULL);
-    // //Thread B
-    // pthread_create(&ThrB, NULL, Thr_B, NULL);
-    // //Thread C
-    // pthread_create(&ThrC, NULL, Thr_C, NULL);
-
-    // //Joining all threads
-    // pthread_join(ThrA, NULL);
-    // pthread_join(ThrB, NULL);
-    // pthread_join(ThrC, NULL);
+    //Joining all threads
+    pthread_join(ThrA, NULL);
+    pthread_join(ThrB, NULL);
+    pthread_join(ThrC, NULL);
     return 0;
 }

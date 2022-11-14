@@ -78,7 +78,7 @@ void* Thr_C(void* args) {
     struct timespec end;
     struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
     if (paramC != NULL) {
-        paramC -> sched_priority = 1;
+        paramC -> sched_priority = 0;
     }
 
     pthread_setschedparam(pthread_self(), SCHED_FIFO, paramC);

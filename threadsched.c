@@ -30,7 +30,7 @@ void* Thr_A(void* args) {
     struct timespec end;
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
     if (paramA != NULL) {
-        paramA -> sched_priority = -20;
+        paramA -> sched_priority = 10;
     }
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);

@@ -3,6 +3,7 @@
 #include <pthread.h>
 #include <unistd.h>
 #include <time.h>
+#include <shed.h>
 
 // struct args {
 // };
@@ -98,20 +99,25 @@ void* Thr_C(void* args) {
 
 int main() {
     
-    pthread_t ThrA;
-    pthread_t ThrB;
-    pthread_t ThrC;
+    int a = sched_get_priority_max(SCHED_RR);
+    int b = sched_get_priority_max(SCHED_FIFO);
 
-    // Thread A
-    pthread_create(&ThrA, NULL, Thr_A, NULL);
-    //Thread B
-    pthread_create(&ThrB, NULL, Thr_B, NULL);
-    //Thread C
-    pthread_create(&ThrC, NULL, Thr_C, NULL);
+    printf("%d %d\n", a, b);
 
-    //Joining all threads
-    pthread_join(ThrA, NULL);
-    pthread_join(ThrB, NULL);
-    pthread_join(ThrC, NULL);
+    // pthread_t ThrA;
+    // pthread_t ThrB;
+    // pthread_t ThrC;
+
+    // // Thread A
+    // pthread_create(&ThrA, NULL, Thr_A, NULL);
+    // //Thread B
+    // pthread_create(&ThrB, NULL, Thr_B, NULL);
+    // //Thread C
+    // pthread_create(&ThrC, NULL, Thr_C, NULL);
+
+    // //Joining all threads
+    // pthread_join(ThrA, NULL);
+    // pthread_join(ThrB, NULL);
+    // pthread_join(ThrC, NULL);
     return 0;
 }

@@ -25,7 +25,7 @@ int main() {
         chdir("linux-5.19.9");
         // execlp("cd", "cd", "linux-5.19.9", NULL);
         execlp("make", "make", "mrproper", NULL);
-        execlp("cp", "cp", "../.config", "./.config", NULL);
+        execlp("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/.config", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-5.19.9/.config", NULL);
         execlp("make", "make", NULL);
 
         return 0;

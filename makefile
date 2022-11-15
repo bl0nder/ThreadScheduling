@@ -1,8 +1,3 @@
-all: threadSched
-	
-threadSched:
+all:
 	gcc threadsched.c -o threadSched
 	./threadSched
-
-processSched:
-	gcc processSched.c -o processSched

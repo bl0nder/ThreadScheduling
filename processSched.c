@@ -21,8 +21,11 @@ int main() {
     }
 
     else if (p1 == 0) {
+        execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
         chdir("linux-5.19.9");
         // execlp("cd", "cd", "linux-5.19.9", NULL);
+        execlp("make", "make", "mrproper", NULL);
+        exelcp("cp", "cp", "../.config", "./.config", NULL);
         execlp("make", "make", NULL);
 
         return 0;

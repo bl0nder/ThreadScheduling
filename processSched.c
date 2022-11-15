@@ -5,6 +5,7 @@
 #include <time.h>
 #include <sched.h>
 #include <sys/types.h>
+#include <sys/wait.h>
 
 int main() {
     //Creating three processes
@@ -19,7 +20,7 @@ int main() {
         return -1;
     }
 
-    else if (pid == 0) {
+    else if (p1 == 0) {
         execlp("cd", "linux-5.19.9", NULL);
         execlp("make", NULL);
 

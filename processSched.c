@@ -21,7 +21,8 @@ int main() {
     }
 
     else if (p1 == 0) {
-        execlp("cd", "cd", "linux-5.19.9", NULL);
+        chdir("linux-5.19.9");
+        // execlp("cd", "cd", "linux-5.19.9", NULL);
         execlp("pwd", "pwd", NULL);
 
         return 0;

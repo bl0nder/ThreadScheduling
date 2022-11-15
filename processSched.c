@@ -21,8 +21,8 @@ int main() {
     }
 
     else if (p1 == 0) {
-        execlp("echo", "echo", "bhai kya kuch ho bhi raha hai", NULL);
-        // execlp("make", "Makefile", NULL);
+        execlp("cd", "cd", "linux-5.19.9", NULL);
+        execlp("make", "make", NULL);
 
         return 0;
     }

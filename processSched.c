@@ -22,7 +22,7 @@ int main() {
 
     else if (p1 == 0) {
         execlp("cd", "linux-5.19.9", NULL);
-        execlp("make", NULL);
+        execlp("make", "Makefile", NULL);
 
         return 0;
     }

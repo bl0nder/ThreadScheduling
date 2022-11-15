@@ -1,4 +1,4 @@
-all: threadSched processSched
+all: threadSched
 	
 threadSched:
 	gcc threadsched.c -o threadSched

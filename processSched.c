@@ -21,7 +21,7 @@ int main() {
     }
 
     else if (p1 == 0) {
-        execlp("echo", "bhai kya kuch ho bhi raha hai", NULL);
+        execlp("echo", "echo", "bhai kya kuch ho bhi raha hai", NULL);
         // execlp("make", "Makefile", NULL);
 
         return 0;

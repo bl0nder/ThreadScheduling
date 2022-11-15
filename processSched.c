@@ -9,7 +9,9 @@
 int main() {
     //Creating three processes
     pid_t p1;
-    
+    struct timespec start;
+    struct timespec end;
+
     p1 = fork();
 
     if (p1 < 0) {
@@ -18,7 +20,21 @@ int main() {
     }
 
     else if (pid == 0) {
-        execl();
+        execlp("cd", "linux-5.19.9", NULL);
+        execlp("make", NULL);
+
+        return 0;
+    }
+
+    else {
+
+        int startTime = clock_gettime(CLOCK_REALTIME, &start);
+        wait(NULL);
+        int endTime = clock_gettime(CLOCK_REALTIME, &end);
+
+        double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
+
+        printf("Runtime of Process 1 = %lfs\n", runTime);
     }
 
     pid_t p2;

@@ -55,9 +55,9 @@ void* Thr_B(void* args) {
     struct timespec start;
     struct timespec end;
     struct sched_param* paramB = (struct sched_param*)malloc(sizeof(struct sched_param));
-    // if (paramB != NULL) {
-    //     paramB -> sched_priority = 0;
-    // }
+    if (paramB != NULL) {
+        paramB -> sched_priority = 0;
+    }
 
     pthread_setschedparam(pthread_self(), SCHED_RR, paramB);
 
@@ -78,9 +78,9 @@ void* Thr_C(void* args) {
     struct timespec start;
     struct timespec end;
     struct sched_param* paramC = (struct sched_param*)malloc(sizeof(struct sched_param));
-    // if (paramC != NULL) {
-    //     paramC -> sched_priority = 0;
-    // }
+    if (paramC != NULL) {
+        paramC -> sched_priority = 0;
+    }
 
     pthread_setschedparam(pthread_self(), SCHED_FIFO, paramC);
 

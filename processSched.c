@@ -23,7 +23,8 @@ int main() {
     else if (p1 == 0) {
         //test
         execlp("mkdir", "mkdir", "kernel1", NULL);
-        execl("cp", "cp", "linux-6.0.9.tar", "kernel1/linux-6.0.9.tar", NULL);
+        execlp("sh", "sh", "-c", "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
+        // execlp("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-6.0.9.tar", "kernel1/linux-6.0.9.tar", NULL);
         chdir("kernel1");
         execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
         chdir("linux-6.0.9");

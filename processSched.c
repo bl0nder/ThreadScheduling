@@ -23,7 +23,7 @@ int main() {
 
     else if (p1 == 0) {
         char copy1[100];
-        strcpy(cop1, "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
+        strcpy(copy1, "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
         //test
         execlp("mkdir", "mkdir", "kernel1", NULL);
         // execlp("sh", "sh", "-c", "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");

@@ -23,12 +23,12 @@ int main() {
     else if (p1 == 0) {
         //test
         execlp("mkdir", "mkdir", "kernel1", NULL);
-        execlp("cp", "cp", "linux-6.0.9.tar", "kernel1/linux-6.0.9.tar", NULL);
+        execl("cp", "cp", "linux-6.0.9.tar", "kernel1/linux-6.0.9.tar", NULL);
         chdir("kernel1");
         execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
         chdir("linux-6.0.9");
         execlp("make", "make", "mrproper", NULL);
-        execlp("cp", "cp", "../../config-rev-9-gold", "./kernel1/linux-6.0.9/.config", NULL);
+        execl("cp", "cp", "../../config-rev-9-gold", "./kernel1/linux-6.0.9/.config", NULL);
         // execlp("make", "make", NULL);
 
         return 0;

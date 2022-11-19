@@ -6,6 +6,7 @@
 #include <sched.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <string.h>
 
 int main() {
     //Creating three processes

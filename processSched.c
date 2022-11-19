@@ -21,17 +21,40 @@ int main() {
     }
 
     else if (p1 == 0) {
-        execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
-        chdir("linux-5.19.9");
-        // execlp("cd", "cd", "linux-5.19.9", NULL);
+        execlp("mkdir", "mkdir", "kernel1", NULL);
+        execlp("cp", "cp", "./linux-6.0.9.tar", "kernel1/linux-6.0.9.tar", NULL);
+        chdir("kernel1");
+        execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
+        chdir("linux-6.0.9");
         execlp("make", "make", "mrproper", NULL);
-        execlp("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/.config", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-5.19.9/.config", NULL);
-        execlp("make", "make", NULL);
+        execlp("cp", "cp", "../../config-rev-9-gold", "./kernel1/linux-6.0.9/.config", NULL);
+        // execlp("make", "make", NULL);
 
         return 0;
     }
 
     else {
+
+        // pid_t p2;
+        // p2 = fork();
+
+        // if (p2 < 0) {
+        //     perror("Error executing fork(): ");
+        //     return -1;
+        // }
+        // else if (p2 == 0) {
+        //     execlp("mkdir", "mkdir", "kernel2", NULL);
+        //     execlp("cp", "cp", "./linux-6.0.9.tar", "kernel2/linux-6.0.9.tar", NULL);
+        //     chdir("kernel2");
+        //     execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
+        //     chdir("linux-6.0.9");
+        //     execlp("make", "make", "mrproper", NULL);
+        //     execlp("cp", "cp", "../../config-rev-9-gold", "./kernel2/linux-6.0.9/.config", NULL);
+        //     execlp("make", "make", NULL);
+        //     return 0;
+        // }
+
+
 
         int startTime = clock_gettime(CLOCK_REALTIME, &start);
         wait(NULL);
@@ -41,9 +64,6 @@ int main() {
 
         printf("Runtime of Process 1 = %lfs\n", runTime);
     }
-
-    pid_t p2;
-    pid_t p3;
 
     
 

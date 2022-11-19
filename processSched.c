@@ -21,10 +21,13 @@ int main() {
     }
 
     else if (p1 == 0) {
+        char copy1[100];
+        strcpy(cop1, "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
         //test
         execlp("mkdir", "mkdir", "kernel1", NULL);
         // execlp("sh", "sh", "-c", "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
-        execl("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-6.0.9.tar", "/home/bl0nder/threadScheduling/ThreadScheduling/kernel1/linux-6.0.9.tar", NULL);
+        // execl("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-6.0.9.tar", "/home/bl0nder/threadScheduling/ThreadScheduling/kernel1/linux-6.0.9.tar", NULL);
+        system(copy1);
         chdir("kernel1");
         execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
         chdir("linux-6.0.9");

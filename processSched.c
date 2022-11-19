@@ -31,7 +31,7 @@ int main() {
         // system(copy1);
         chdir("kernel1");
         // execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
-        chdir("linux-6.0.9");
+        chdir("linux-5.19.9");
         // execlp("make", "make", "mrproper", NULL);
         // execl("cp", "cp", "../../config-rev-9-gold", "./kernel1/linux-6.0.9/.config", NULL);
         execlp("make", "make", NULL);

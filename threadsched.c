@@ -36,7 +36,7 @@ void* Thr_A(void* args) {
         paramA -> sched_priority = 0;
     }
 
-    nice(-1);
+    nice(0);
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);
 

@@ -53,7 +53,7 @@ int main() {
 
     else if ((p2 = fork()) == 0) {
         printf("Process 2 started\n");
-        for (int i=1; i<=10000; i++) {
+        for (int i=1; i<=1000000; i++) {
         }
         // execlp("bash", "bash", "compileKernel2.sh", NULL);
         return 0;

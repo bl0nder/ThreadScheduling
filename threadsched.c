@@ -40,13 +40,17 @@ void* Thr_A(void* args) {
 
     printf("Thread A has started counting!\n");
     
+    FILE file*;
+    file = fopen("threadRuntimeCFS.txt", "a");
+
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countA();
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    printf("Runtime of CountA = %lfs\n", runTime);
+    fprintf(file, "Runtime of CountA = %lfs\n", runTime);
+    printf("Thread A has terminated.\n");
     free(paramA);
     return NULL;
 }
@@ -63,13 +67,17 @@ void* Thr_B(void* args) {
 
     printf("Thread B has started counting!\n");
     
+    FILE file*;
+    file = fopen("threadRuntimeRR.txt", "a");
+    
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countB();
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    printf("Runtime of CountB = %lfs\n", runTime);
+    fprintf(file, "Runtime of CountB = %lfs\n", runTime);
+    printf("Thread B has terminated.\n");
     free(paramB);
     return NULL;
 }
@@ -86,14 +94,18 @@ void* Thr_C(void* args) {
 
     printf("Thread C has started counting!\n");
     
+    FILE file*;
+    file = fopen("threadRuntimeFIFO.txt", "a");
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countC();
     int endTime = clock_gettime(CLOCK_REALTIME, &end);
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    printf("Runtime of CountC = %lfs\n", runTime);
+    fprintf(file, "%d %lfs\n", paramC->sched_priority, runTime);
+    fclose(file);
     free(paramC);
+    printf("Thread C has terminated.\n");
     return NULL;
 }
 

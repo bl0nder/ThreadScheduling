@@ -96,7 +96,7 @@ int main() {
             // return 0;
         }
     }
-    fprint(file, "\n");
+    fprintf(file, "\n");
     fclose(file);
     // if (p1 > 0) {
     //     waitpid(p1,NULL,0);

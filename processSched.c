@@ -40,19 +40,8 @@ int main() {
     int startTime3 = clock_gettime(CLOCK_REALTIME, &start3);
     // p1 = fork();
 
-    if ((p2 = fork()) == 0) {
-        // sched_setscheduler(p2, SCHED_FIFO, param2);
-        nice(0);
-        printf("Process 2 started\n");
-        for (int i=1; i<=count; i++) {
-            continue;
-        }
-        // execlp("bash", "bash", "compileKernel2.sh", NULL);
-        return 0;
-    }
-    
-    else if ((p1 = fork()) == 0) {
-        nice(0);
+    if ((p1 = fork()) == 0) {
+        nice(18);
         // sched_setscheduler(p1, SCHED_RR, param1);
         printf("Process 1 started\n");
         for (int i=1; i<=count; i++) {
@@ -62,7 +51,16 @@ int main() {
         return 0;
     }
 
-    
+    else if ((p2 = fork()) == 0) {
+        // sched_setscheduler(p2, SCHED_FIFO, param2);
+        nice(-10);
+        printf("Process 2 started\n");
+        for (int i=1; i<=count; i++) {
+            continue;
+        }
+        // execlp("bash", "bash", "compileKernel2.sh", NULL);
+        return 0;
+    }
     
     else if ((p3 = fork()) == 0) {
         nice(0);
@@ -75,12 +73,6 @@ int main() {
         return 0;
     }
 
-    if (p1 > 0) {
-        waitpid(p1, NULL, 0);
-        int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
-        double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
-        printf("Runtime of Process 1 = %lfs\n", runTime1);
-    }
 
     if (p2 > 0) {
         waitpid(p2, NULL, 0);
@@ -88,7 +80,14 @@ int main() {
         double runTime2 = (end2.tv_sec + 1.0e-9*end2.tv_nsec - (start2.tv_sec + 1.0e-9*start2.tv_nsec));
         printf("Runtime of Process 2 = %lfs\n", runTime2);
     }
-        
+
+    if (p1 > 0) {
+        waitpid(p1, NULL, 0);
+        int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
+        double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
+        printf("Runtime of Process 1 = %lfs\n", runTime1);
+    }
+
     if (p3 > 0) {
         waitpid(p3, NULL, 0);
         int endTime3 = clock_gettime(CLOCK_REALTIME, &end3);

@@ -28,7 +28,8 @@ int main() {
         //test
         execlp("mkdir", "mkdir", "kernel1", NULL);
         chdir("kernel1");
-        execlp("wget", "wget", "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
+        execlp("sh", "sh", "-c", "wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
+        // execlp("wget", "wget", "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
         execlp("unxz", "unxz", "linux-5.19.9.tar.xz", NULL);
         execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
         chdir("linux-5.19.9");

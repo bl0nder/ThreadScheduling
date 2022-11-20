@@ -102,9 +102,6 @@ int main() {
             // return 0;
         }
     }
-    fprintf(file1, "\n");
-    fprintf(file2, "\n");
-    fprintf(file3, "\n");
     fclose(file1);
     fclose(file2);
     fclose(file3);

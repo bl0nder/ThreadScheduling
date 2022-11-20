@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <time.h>
 #include <sched.h>
-#include <resource.h>
+#include <sys/resource.h>
 
 // struct args {
 // };

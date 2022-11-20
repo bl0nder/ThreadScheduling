@@ -42,7 +42,7 @@ int main() {
 
     if ((p2 = fork()) == 0) {
         // sched_setscheduler(p2, SCHED_FIFO, param2);
-        nice(-10);
+        nice(0);
         printf("Process 2 started\n");
         for (int i=1; i<=count; i++) {
             continue;
@@ -52,7 +52,7 @@ int main() {
     }
     
     else if ((p1 = fork()) == 0) {
-        nice(18);
+        nice(0);
         // sched_setscheduler(p1, SCHED_RR, param1);
         printf("Process 1 started\n");
         for (int i=1; i<=count; i++) {

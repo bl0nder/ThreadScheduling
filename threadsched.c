@@ -40,7 +40,7 @@ void* Thr_A(void* args) {
 
     printf("Thread A has started counting!\n");
     
-    FILE file*;
+    FILE* file;
     file = fopen("threadRuntimeCFS.txt", "a");
 
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
@@ -67,7 +67,7 @@ void* Thr_B(void* args) {
 
     printf("Thread B has started counting!\n");
     
-    FILE file*;
+    FILE* file;
     file = fopen("threadRuntimeRR.txt", "a");
     
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
@@ -94,7 +94,7 @@ void* Thr_C(void* args) {
 
     printf("Thread C has started counting!\n");
     
-    FILE file*;
+    FILE* file;
     file = fopen("threadRuntimeFIFO.txt", "a");
     int startTime = clock_gettime(CLOCK_REALTIME, &start);
     countC();

@@ -11,10 +11,14 @@
 int main() {
     //Creating three processes
     pid_t p1;
-    struct timespec start;
-    struct timespec end;
+    struct timespec start1;
+    struct timespec end1;
+    struct timespec start2;
+    struct timespec end2;
+    struct timespec start3;
+    struct timespec end3;
 
-    int startTime = clock_gettime(CLOCK_REALTIME, &start);
+    int startTime1 = clock_gettime(CLOCK_REALTIME, &start1);
     p1 = fork();
 
     if (p1 < 0) {
@@ -41,34 +45,54 @@ int main() {
     }
 
     else {
-
-        // pid_t p2;
-        // p2 = fork();
-
-        // if (p2 < 0) {
-        //     perror("Error executing fork(): ");
-        //     return -1;
-        // }
-        // else if (p2 == 0) {
-        //     execlp("mkdir", "mkdir", "kernel2", NULL);
-        //     execlp("cp", "cp", "./linux-6.0.9.tar", "kernel2/linux-6.0.9.tar", NULL);
-        //     chdir("kernel2");
-        //     execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
-        //     chdir("linux-6.0.9");
-        //     execlp("make", "make", "mrproper", NULL);
-        //     execlp("cp", "cp", "../../config-rev-9-gold", "./kernel2/linux-6.0.9/.config", NULL);
-        //     execlp("make", "make", NULL);
-        //     return 0;
-        // }
-
-
-
         wait(NULL);
-        int endTime = clock_gettime(CLOCK_REALTIME, &end);
+        int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
 
-        double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
+        double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
 
-        printf("Runtime of Process 1 = %lfs\n", runTime);
+        printf("Runtime of Process 1 = %lfs\n", runTime1);
+
+        pid_t p2;
+        int startTime2 = clock_gettime(CLOCK_REALTIME, &start2);
+        p2 = fork();
+
+        if (p2 < 0) {
+            perror("Error executing fork(): ");
+            return -1;
+        }
+        else if (p2 == 0) {
+            execlp("bash", "bash", "compileKernel2.sh", NULL);
+            return 0;
+        }
+        else {
+            wait(NULL);
+            int endTime2 = clock_gettime(CLOCK_REALTIME, &end2);
+
+            double runTime2 = (end2.tv_sec + 1.0e-9*end2.tv_nsec - (start2.tv_sec + 1.0e-9*start2.tv_nsec));
+
+            printf("Runtime of Process 2 = %lfs\n", runTime2);
+
+            pid_t p3;
+            int startTime3 = clock_gettime(CLOCK_REALTIME, &start3);
+            p3 = fork();
+
+            if (p3 < 0) {
+                perror("Error executing fork(): ");
+                return -1;
+            }
+            else if (p3 == 0) {
+                execlp("bash", "bash", "compileKernel3.sh", NULL);
+                return 0;
+            }
+            else {
+                wait(NULL);
+                int endTime3 = clock_gettime(CLOCK_REALTIME, &end3);
+
+                double runTime3 = (end3.tv_sec + 1.0e-9*end3.tv_nsec - (start3.tv_sec + 1.0e-9*start3.tv_nsec));
+
+                printf("Runtime of Process 3 = %lfs\n", runTime3);
+            }
+        }
     }
 
     

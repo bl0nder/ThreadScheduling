@@ -26,16 +26,17 @@ int main() {
         // char copy1[100];
         // strcpy(copy1, "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
         //test
-        execlp("mkdir", "mkdir", "kernel1", NULL);
-        chdir("kernel1");
-        // system("wget 'https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz'");
-        execl("/bin/wget", "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
-        execlp("unxz", "unxz", "linux-5.19.9.tar.xz", NULL);
-        execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
-        chdir("linux-5.19.9");
-        execlp("make", "make", "mrproper", NULL);
-        execlp("wget", "wget", "-O", ".config", "https://github.com/bl0nder/ThreadScheduling/blob/405cc153b9dc8fd333485780413fb1de3d3b7e09/config-rev-9-gold", NULL);
-        execlp("make", "make", NULL);
+        // execlp("mkdir", "mkdir", "kernel1", NULL);
+        // chdir("kernel1");
+        // // system("wget 'https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz'");
+        // execl("/bin/wget", "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
+        // execlp("unxz", "unxz", "linux-5.19.9.tar.xz", NULL);
+        // execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
+        // chdir("linux-5.19.9");
+        // execlp("make", "make", "mrproper", NULL);
+        // execlp("wget", "wget", "-O", ".config", "https://github.com/bl0nder/ThreadScheduling/blob/405cc153b9dc8fd333485780413fb1de3d3b7e09/config-rev-9-gold", NULL);
+        // execlp("make", "make", NULL);
+        execlp("./compileKernel.sh", "compileKernel.sh", NULL);
         return 0;
     }
 

@@ -73,31 +73,41 @@ int main() {
         
     }
 
-    FILE *file;
-    file = fopen("processRuntime.txt", "a");
+    FILE *file1;
+    FILE *file2;
+    FILE *file3;
+    
+    file1 = fopen("processRuntime1.txt", "a");
+    file2 = fopen("processRuntime2.txt", "a");
+    file3 = fopen("processRuntime3.txt", "a");
+
     for (int i=0; i<3; i++) {
         pid_t pEnd = wait(NULL);
         if (pEnd == p1) {
             int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
             double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
-            fprintf(file, "Runtime of Process 1 = %lfs\n", runTime1);
+            fprintf(file1, "Runtime of Process 1 = %lfs\n", runTime1);
         // return 0;
         }
         else if (pEnd == p2) {
             int endTime2 = clock_gettime(CLOCK_REALTIME, &end2);
             double runTime2 = (end2.tv_sec + 1.0e-9*end2.tv_nsec - (start2.tv_sec + 1.0e-9*start2.tv_nsec));
-            fprintf(file, "Runtime of Process 2 = %lfs\n", runTime2);
+            fprintf(file2, "Runtime of Process 2 = %lfs\n", runTime2);
             // return 0;
         }
         else if (pEnd == p3) {
             int endTime3 = clock_gettime(CLOCK_REALTIME, &end3);
             double runTime3 = (end3.tv_sec + 1.0e-9*end3.tv_nsec - (start3.tv_sec + 1.0e-9*start3.tv_nsec));
-            fprintf(file, "Runtime of Process 3 = %lfs\n", runTime3);
+            fprintf(file3, "Runtime of Process 3 = %lfs\n", runTime3);
             // return 0;
         }
     }
-    fprintf(file, "\n");
-    fclose(file);
+    fprintf(file1, "\n");
+    fprintf(file2, "\n");
+    fprintf(file3, "\n");
+    fclose(file1);
+    fclose(file2);
+    fclose(file3);
     // if (p1 > 0) {
     //     waitpid(p1,NULL,0);
     // }

@@ -44,28 +44,25 @@ int main() {
     sched_setscheduler(p3, SCHED_FIFO, param3);
 
     if ((p1 = fork()) == 0) {
+        printf("Process 1 started\n");
         for (int i=1; i<=10000; i++) {
-            printf("%d ", i);
         }
-        printf("\n");
         // execlp("bash", "bash", "compileKernel1.sh", NULL);
         return 0;
     }
 
     else if ((p2 = fork()) == 0) {
+        printf("Process 2 started\n");
         for (int i=1; i<=10000; i++) {
-            printf("%d ", i);
         }
-        printf("\n");
         // execlp("bash", "bash", "compileKernel2.sh", NULL);
         return 0;
     }
     
     else if ((p3 = fork()) == 0) {
+        printf("Process 3 started\n");
         for (int i=1; i<=10000; i++) {
-            printf("%d ", i);
         }
-        printf("\n");
         // execlp("bash", "bash", "compileKernel3.sh", NULL);
         return 0;
     }

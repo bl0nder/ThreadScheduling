@@ -71,7 +71,7 @@ int main() {
     }
 
     else {
-        wait(p1, NULL, 0);
+        waitpid(p1, NULL, 0);
         int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
         double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
         printf("Runtime of Process 1 = %lfs\n", runTime1);

@@ -49,7 +49,7 @@ void* Thr_A(void* args) {
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    fprintf(file, "Runtime of CountA = %lfs\n", runTime);
+    fprintf(file, "%d %lfs\n", paramA->sched_priority, runTime);
     printf("Thread A has terminated.\n");
     free(paramA);
     return NULL;
@@ -76,7 +76,7 @@ void* Thr_B(void* args) {
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    fprintf(file, "Runtime of CountB = %lfs\n", runTime);
+    fprintf(file, "%d %lfs\n", paramB->sched_priority, runTime);
     printf("Thread B has terminated.\n");
     free(paramB);
     return NULL;

@@ -32,11 +32,13 @@ void* Thr_A(void* args) {
     struct timespec end;
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
     
+    int niceVal = 19;
+
     if (paramA != NULL) {
         paramA -> sched_priority = 0;
     }
 
-    nice(19);
+    nice(niceVal);
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);
 
@@ -51,7 +53,7 @@ void* Thr_A(void* args) {
 
     double runTime = (end.tv_sec + 1.0e-9*end.tv_nsec - (start.tv_sec + 1.0e-9*start.tv_nsec));
 
-    fprintf(file, "%d %lfs\n", getpriority(PRIO_PROCESS, pthread_self()), runTime);
+    fprintf(file, "%d %lfs\n", niceVal, runTime);
     free(paramA);
     return NULL;
 }

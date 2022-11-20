@@ -5,3 +5,4 @@ threadSched:
 
 processSched:
 	gcc processSched.c -o processSched
+	./processSched

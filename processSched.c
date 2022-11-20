@@ -22,10 +22,10 @@ int main() {
     struct sched_param* param3 = (struct sched_param*)malloc(sizeof(struct sched_param));
 
     if (param1 != NULL) {
-        param1 -> sched_priority = 1;
+        param1 -> sched_priority = 0;
     }
     if (param2 != NULL) {
-        param2 -> sched_priority = 1;
+        param2 -> sched_priority = 0;
     }
     if (param3 != NULL) {
         param3 -> sched_priority = 0;

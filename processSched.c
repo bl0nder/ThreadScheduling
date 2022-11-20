@@ -69,7 +69,7 @@ int main() {
     }
     
     else if ((p3 = fork()) == 0) {
-        nice(0);
+        nice(1);
         // sched_setscheduler(p3, SCHED_OTHER, param3);
         printf("Process 3 started\n");
         for (int i=1; i<=count; i++) {

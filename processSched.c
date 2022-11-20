@@ -31,7 +31,7 @@ int main() {
         param3 -> sched_priority = 0;
     }
 
-    int count = 1000000000;
+    int count = 10000000;
     pid_t p1;
     pid_t p2;
     pid_t p3;

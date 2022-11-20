@@ -6,5 +6,5 @@ wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz
 # tar -xvf linux-5.19.9.tar
 # cd linux-5.19.9
 # make mrproper
-wget https://github.com/bl0nder/ThreadScheduling/blob/405cc153b9dc8fd333485780413fb1de3d3b7e09/config-rev-9-gold
+wget https://raw.githubusercontent.com/bl0nder/ThreadScheduling/main/config-rev-9-gold
 # make

@@ -82,8 +82,14 @@ int main() {
         return 0;
     }
 
-    else {
-        waitpid(-1,NULL,0);
+    if (p1 > 0) {
+        waitpid(p1,NULL,0);
+    }
+    if (p2 > 0) {
+        waitpid(p2,NULL,0);
+    }
+    if (p3 > 0) {
+        waitpid(p3, NULL, 0);
     }
     
     return 0;

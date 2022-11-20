@@ -36,7 +36,7 @@ int main() {
         // execlp("make", "make", "mrproper", NULL);
         // execlp("wget", "wget", "-O", ".config", "https://github.com/bl0nder/ThreadScheduling/blob/405cc153b9dc8fd333485780413fb1de3d3b7e09/config-rev-9-gold", NULL);
         // execlp("make", "make", NULL);
-        execlp("./compileKernel.sh", "compileKernel.sh", NULL);
+        execlp("sh", "sh", "./compileKernel.sh", NULL);
         return 0;
     }
 

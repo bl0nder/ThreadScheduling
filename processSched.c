@@ -35,7 +35,7 @@ int main() {
     pid_t p1;
     int startTime1 = clock_gettime(CLOCK_REALTIME, &start1);
     p1 = fork();
-    sched_setscheduler(p1, SCHED_OTHER, param1);
+    sched_setscheduler(p1, SCHED_FIFO, param1);
     if (p1 < 0) {
         perror("Error executing fork(): ");
         return -1;
@@ -77,7 +77,7 @@ int main() {
             pid_t p3;
             int startTime3 = clock_gettime(CLOCK_REALTIME, &start3);
             p3 = fork();
-            sched_setscheduler(p3, SCHED_FIFO, param3);
+            sched_setscheduler(p3, SCHED_OTHER, param3);
 
             if (p3 < 0) {
                 perror("Error executing fork(): ");

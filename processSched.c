@@ -10,7 +10,6 @@
 
 int main() {
     //Creating three processes
-    pid_t p1;
     struct timespec start1;
     struct timespec end1;
     struct timespec start2;
@@ -18,9 +17,25 @@ int main() {
     struct timespec start3;
     struct timespec end3;
 
+    struct sched_param* param1 = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* param2 = (struct sched_param*)malloc(sizeof(struct sched_param));
+    struct sched_param* param3 = (struct sched_param*)malloc(sizeof(struct sched_param));
+
+    if (param1 != NULL) {
+        param1 -> sched_priority = 0;
+    }
+    if (param2 != NULL) {
+        param2 -> sched_priority = 0;
+    }
+    if (param3 != NULL) {
+        param3 -> sched_priority = 0;
+    }
+
+    
+    pid_t p1;
     int startTime1 = clock_gettime(CLOCK_REALTIME, &start1);
     p1 = fork();
-
+    sched_setscheduler(p1, SCHED_OTHER, param1);
     if (p1 < 0) {
         perror("Error executing fork(): ");
         return -1;
@@ -55,6 +70,7 @@ int main() {
         pid_t p2;
         int startTime2 = clock_gettime(CLOCK_REALTIME, &start2);
         p2 = fork();
+        sched_setscheduler(p2, SCHED_RR, param2);
 
         if (p2 < 0) {
             perror("Error executing fork(): ");
@@ -75,6 +91,7 @@ int main() {
             pid_t p3;
             int startTime3 = clock_gettime(CLOCK_REALTIME, &start3);
             p3 = fork();
+            sched_setscheduler(p3, SCHED_FIFO, param3);
 
             if (p3 < 0) {
                 perror("Error executing fork(): ");

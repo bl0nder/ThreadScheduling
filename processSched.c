@@ -14,6 +14,7 @@ int main() {
     struct timespec start;
     struct timespec end;
 
+    int startTime = clock_gettime(CLOCK_REALTIME, &start);
     p1 = fork();
 
     if (p1 < 0) {
@@ -25,17 +26,15 @@ int main() {
         // char copy1[100];
         // strcpy(copy1, "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
         //test
-        // execlp("mkdir", "mkdir", "kernel1", NULL);
-        // execvp("sh", "sh", "-c", "cp linux-6.0.9.tar kernel1/linux-6.0.9.tar");
-        // execl("cp", "cp", "/home/bl0nder/threadScheduling/ThreadScheduling/linux-6.0.9.tar", "/home/bl0nder/threadScheduling/ThreadScheduling/kernel1/linux-6.0.9.tar", NULL);
-        // system(copy1);
+        execlp("mkdir", "mkdir", "kernel1", NULL);
         chdir("kernel1");
-        // execlp("tar", "tar", "-xvf", "linux-6.0.9.tar", NULL);
+        execlp("wget", "wget", "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz", NULL);
+        execlp("unxz", "unxz", "linux-5.19.9.tar.xz", NULL);
+        execlp("tar", "tar", "-xvf", "linux-5.19.9.tar", NULL);
         chdir("linux-5.19.9");
-        // execlp("make", "make", "mrproper", NULL);
-        // execl("cp", "cp", "../../config-rev-9-gold", "./kernel1/linux-6.0.9/.config", NULL);
+        execlp("make", "make", "mrproper", NULL);
+        execlp("wget", "wget", "-O", ".config", "https://github.com/bl0nder/ThreadScheduling/blob/405cc153b9dc8fd333485780413fb1de3d3b7e09/config-rev-9-gold", NULL);
         execlp("make", "make", NULL);
-
         return 0;
     }
 
@@ -62,7 +61,6 @@ int main() {
 
 
 
-        int startTime = clock_gettime(CLOCK_REALTIME, &start);
         wait(NULL);
         int endTime = clock_gettime(CLOCK_REALTIME, &end);
 

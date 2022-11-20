@@ -44,10 +44,10 @@ int main() {
         // nice(-10);
         sched_setscheduler(p1, SCHED_OTHER, param1);
         printf("Process 1 started\n");
-        for (int i=1; i<=count; i++) {
-            continue;
-        }
-        // execlp("bash", "bash", "compileKernel1.sh", NULL);
+        // for (int i=1; i<=count; i++) {
+        //     continue;
+        // }
+        execlp("bash", "bash", "compileKernel1.sh", NULL);
         
     }
 
@@ -55,10 +55,10 @@ int main() {
         sched_setscheduler(p2, SCHED_RR, param2);
         // nice(5);
         printf("Process 2 started\n");
-        for (int i=1; i<=count; i++) {
-            continue;
-        }
-        // execlp("bash", "bash", "compileKernel2.sh", NULL);
+        // for (int i=1; i<=count; i++) {
+        //     continue;
+        // }
+        execlp("bash", "bash", "compileKernel2.sh", NULL);
         
     }
     
@@ -66,10 +66,10 @@ int main() {
         // nice(1);
         sched_setscheduler(p3, SCHED_FIFO, param3);
         printf("Process 3 started\n");
-        for (int i=1; i<=count; i++) {
-            continue;
-        }
-        // execlp("bash", "bash", "compileKernel3.sh", NULL);
+        // for (int i=1; i<=count; i++) {
+        //     continue;
+        // }
+        execlp("bash", "bash", "compileKernel3.sh", NULL);
         
     }
 

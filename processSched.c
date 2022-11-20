@@ -83,7 +83,7 @@ int main() {
     }
 
     else {
-        wait(NULL);
+        waitpid(-1,NULL,0);
     }
     
     return 0;

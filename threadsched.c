@@ -38,9 +38,9 @@ void* Thr_A(void* args) {
         paramA -> sched_priority = 0;
     }
 
-    nice(niceVal);
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);
+    nice(niceVal);
 
     printf("Thread A has started counting!\n");
     

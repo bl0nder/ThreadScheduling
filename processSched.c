@@ -21,17 +21,17 @@ int main() {
     struct sched_param* param2 = (struct sched_param*)malloc(sizeof(struct sched_param));
     struct sched_param* param3 = (struct sched_param*)malloc(sizeof(struct sched_param));
 
-    if (param1 != NULL) {
-        param1 -> sched_priority = 0;
-    }
-    if (param2 != NULL) {
-        param2 -> sched_priority = 0;
-    }
-    if (param3 != NULL) {
-        param3 -> sched_priority = 0;
-    }
+    // if (param1 != NULL) {
+    //     param1 -> sched_priority = 0;
+    // }
+    // if (param2 != NULL) {
+    //     param2 -> sched_priority = 0;
+    // }
+    // if (param3 != NULL) {
+    //     param3 -> sched_priority = 0;
+    // }
 
-    int count = 10000000;
+    int count = 100000000;
     pid_t p1;
     pid_t p2;
     pid_t p3;

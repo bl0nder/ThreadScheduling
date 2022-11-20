@@ -25,10 +25,10 @@ int main() {
         param1 -> sched_priority = 0;
     }
     if (param2 != NULL) {
-        param2 -> sched_priority = 0;
+        param2 -> sched_priority = 1;
     }
     if (param3 != NULL) {
-        param3 -> sched_priority = 0;
+        param3 -> sched_priority = 1;
     }
 
     int count = 1000000000;

@@ -32,7 +32,7 @@ void* Thr_A(void* args) {
     struct timespec end;
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
     
-    int niceVal = -10;
+    int niceVal = -15;
 
     if (paramA != NULL) {
         paramA -> sched_priority = 0;

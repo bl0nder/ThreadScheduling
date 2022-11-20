@@ -71,18 +71,18 @@ int main() {
     }
 
     else {
-        waitpid(p1, NULL, 0);
+        wait(&p1);
         int endTime1 = clock_gettime(CLOCK_REALTIME, &end1);
         double runTime1 = (end1.tv_sec + 1.0e-9*end1.tv_nsec - (start1.tv_sec + 1.0e-9*start1.tv_nsec));
         printf("Runtime of Process 1 = %lfs\n", runTime1);
 
-        waitpid(p2, NULL, 0);
+        wait(&p2);
         int endTime2 = clock_gettime(CLOCK_REALTIME, &end2);
         double runTime2 = (end2.tv_sec + 1.0e-9*end2.tv_nsec - (start2.tv_sec + 1.0e-9*start2.tv_nsec));
         printf("Runtime of Process 2 = %lfs\n", runTime2);
 
         
-        waitpid(p3, NULL, 0);
+        wait(&p3);
         int endTime3 = clock_gettime(CLOCK_REALTIME, &end3);
         double runTime3 = (end3.tv_sec + 1.0e-9*end3.tv_nsec - (start3.tv_sec + 1.0e-9*start3.tv_nsec));
         printf("Runtime of Process 3 = %lfs\n", runTime3);

@@ -39,11 +39,9 @@ int main() {
     int startTime2 = clock_gettime(CLOCK_REALTIME, &start2);
     int startTime3 = clock_gettime(CLOCK_REALTIME, &start3);
     // p1 = fork();
-    sched_setscheduler(p1, SCHED_FIFO, param1);
-    sched_setscheduler(p2, SCHED_RR, param2);
-    sched_setscheduler(p3, SCHED_OTHER, param3);
 
     if ((p1 = fork()) == 0) {
+        sched_setscheduler(p1, SCHED_FIFO, param1);
         printf("Process 1 started\n");
         for (int i=1; i<=count; i++) {
             continue;
@@ -53,6 +51,7 @@ int main() {
     }
 
     else if ((p2 = fork()) == 0) {
+        sched_setscheduler(p2, SCHED_RR, param2);
         printf("Process 2 started\n");
         for (int i=1; i<=count; i++) {
             continue;
@@ -62,6 +61,7 @@ int main() {
     }
     
     else if ((p3 = fork()) == 0) {
+        sched_setscheduler(p3, SCHED_OTHER, param3);
         printf("Process 3 started\n");
         for (int i=1; i<=count; i++) {
             continue;

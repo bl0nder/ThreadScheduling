@@ -1,8 +1,8 @@
-all: threadSched processSched
+all: t p
 
-threadSched:
+t:
 	gcc threadsched.c -o threadSched
 
-processSched:
+p:
 	gcc processSched.c -o processSched
 	./processSched

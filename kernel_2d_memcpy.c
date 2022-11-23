@@ -8,8 +8,18 @@ SYSCALL_DEFINE0 (kernel_2d_memcpy) {
     int tmp[5][5];
     int matrixCopy[5][5];
 
-    copy_from_user((void *) &tmp, (const void*) &matrix, 25*sizeof(int));
-    copy_to_user((void *) &matrixCopy, (const void*) &tmp, 25*sizeof(int));
+    int copy1;
+    int copy2;
+
+    copy1 = copy_from_user((void *) &tmp, (const void*) &matrix, 25*sizeof(int));
+    copy2 = copy_to_user((void *) &matrixCopy, (const void*) &tmp, 25*sizeof(int));
+
+    if (copy1 != 0) {
+        return -1;
+    }
+    else if (copy2 != 0) {
+        return -2;
+    }
 
     return 0;
 }

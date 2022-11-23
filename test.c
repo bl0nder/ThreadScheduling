@@ -21,7 +21,7 @@ int main() {
     int flag = syscall(451, sourceMatrix, destMatrix, 5, 5);
 
     if (!flag) {
-        printf("Copy has been succesful. Here is the destination matrix:\n");
+        printf("Copy has been successful. Here is the destination matrix:\n");
         for (int i=0; i<5; i++) {
             for (int j=0; j<5; j++) {
                 printf("%d ", destMatrix[i][j]);

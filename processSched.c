@@ -77,9 +77,9 @@ int main() {
     FILE *file2;
     FILE *file3;
     
-    file1 = fopen("processRuntime1.txt", "a");
-    file2 = fopen("processRuntime2.txt", "a");
-    file3 = fopen("processRuntime3.txt", "a");
+    file1 = fopen("processRuntimeCFS.txt", "a");
+    file2 = fopen("processRuntimeRR.txt", "a");
+    file3 = fopen("processRuntimeFIFO.txt", "a");
 
     for (int i=0; i<3; i++) {
         pid_t pEnd = wait(NULL);

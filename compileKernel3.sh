@@ -1,6 +1,6 @@
 #!/bin/bash
-mkdir -p kernel3
-cd kernel3
+mkdir -p kernel_P3
+cd kernel_P3
 wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.19.9.tar.xz
 unxz linux-5.19.9.tar.xz
 tar -xvf linux-5.19.9.tar

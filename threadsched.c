@@ -30,15 +30,17 @@ void* Thr_A(void* args) {
     struct timespec end;
     struct sched_param* paramA = (struct sched_param*)malloc(sizeof(struct sched_param));
     
-    int niceVal = -20;
+    int prio = -20;
 
     if (paramA != NULL) {
         paramA -> sched_priority = 0;
     }
 
+    printf("%d %d\n", sched_get_priority_min(SCHED_OTHER), sched_get_priority_max(SCHED_OTHER));
 
     pthread_setschedparam(pthread_self(), SCHED_OTHER, paramA);
-    nice(niceVal);
+    // nice(niceVal);
+    // pthread_setschedprio(pthread_self(), prio);
 
     printf("Thread A has started counting!\n");
     
